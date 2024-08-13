@@ -24,7 +24,7 @@ export default function Home() {
   }, [messages])
 
   async function getEmbedding(text) {
-    const response = await fetch('http://127.0.0.1:5000/embed', {
+    const response = await fetch('http://127.0.0.1:5000/api/embed', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -178,60 +178,6 @@ export default function Home() {
             </Box>
           </div>
       </div>
-    </main>
-
-    // <main className="flex min-h-screen flex-col items-center justify-between p-24">
-    //   <Box
-    //   width="100vw"
-    //   height="100vh"
-    //   display="flex"
-    //   flexDirection="column"
-    //   justifyContent="center"
-    //   alignItems="center"
-    //   >
-    //     <Stack direction={'column'} 
-    //     width="500px"
-    //     height="700px"
-    //     border="1px solid black"
-    //     p={2}
-    //     spacing={3}
-    //     >
-    //       <Stack direction={'column'} 
-    //       spacing={2}
-    //       flexGrow={1}
-    //       overflow="auto"
-    //       maxHeight="100%"
-    //       >
-    //         {messages.map((message, index) => (
-    //           <Box
-    //             key={index}
-    //             display="flex"
-    //             justifyContent={
-    //               message.role === 'assistant' ? 'flex-start' : 'flex-end'
-    //             }
-    //           >
-    //             <Box
-    //               bgcolor={
-    //                 message.role === 'assistant'
-    //                   ? 'primary.main'
-    //                   : 'secondary.main'
-    //               }
-    //               color="white"
-    //               borderRadius={16}
-    //               p={3}
-    //             >
-    //               {message.content}
-    //             </Box>
-    //           </Box>
-    //         ))}
-    //         <div ref={messagesEndRef} />
-    //       </Stack>
-    //       <Stack direction={'row'} spacing={2}>
-    //         <TextField label="Message" fullWidth value={msg} onChange={(e) => setMsg(e.target.value)} onKeyPress={handleKeyPress} disabled={isLoading}/>
-    //         <Button variant="contained" onClick={sendMessage} disabled={isLoading}>{isLoading ? 'Sending' : 'Send'}</Button>
-    //       </Stack>
-    //     </Stack>
-    //   </Box>
-    // </main>
+    </main>   
   );
 }

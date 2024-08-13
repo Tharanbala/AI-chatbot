@@ -3,7 +3,7 @@ import {NextResponse} from 'next/server' // Import NextResponse from Next.js for
 export async function POST(req) {
     const data = await req.json()
 
-    const response = await fetch('http://127.0.0.1:5000/query', {
+    const response = await fetch('http://127.0.0.1:5000/api/query', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
