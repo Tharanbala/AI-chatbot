@@ -21,11 +21,11 @@ async function scrapeData() {
     method: "POST",
     headers: {
         "Content-Type": "application/json",
-        "x-api-key": "sk_7ba020e63cbd26daa959b060c007c75501cf32d6a993c6af25175555547bc09ec10f564035efc907e70fc5ad0f186d47985bd77078173239a65534831aee1377024GEk8TrAH419HP6ntCi", // Replace with your actual API key.
+        "x-api-key": "sk_7364b8d40be2a31c390c8491efe207c25f756c88d3ca6889dea0049c99593939ccff48ed4bb9a6e1f48ac102d56c687638afd73359e9084f91d06bc67d502ca4024iOQCXQPPh3LiUJgAwA", // Replace with your actual API key.
     },
     body: JSON.stringify({
         url: "https://www.tcl.com/us/en/products/home-theater/4-series/tcl-55-class-4-series-4k-uhd-led-roku-smart-tv-55s425",
-        element_prompts: ["Product title", "Product price"], // Adjust prompts as per your needs.
+        element_prompts: ["Product title", "Product price", "Product reviews"], // Adjust prompts as per your needs.
     }),
     };
 

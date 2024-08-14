@@ -10,17 +10,18 @@ prepare_pinecone()
 app = Flask(__name__)
 CORS(app)
 
-@app.route('api/embed', methods=['POST'])
-def embed():
-    data = request.json
-    text = data.get('text')
-    embedding = get_embeddings(text)
-    return jsonify({"embedding": embedding})
+# @app.route('/api/embed', methods=['POST'])
+# def embed():
+#     data = request.json
+#     text = data.get('text')
+#     embedding = get_embeddings(text)
+#     return jsonify({"embedding": embedding})
 
-@app.route('api/query', methods=['POST'])
+@app.route('/api/query', methods=['POST'])
 def query():
     data = request.json
-    query_embedding = data.get('embedding')
+    text = data.get('text')
+    query_embedding = get_embeddings(text)
     results = query_pinecone(query_embedding)
     return jsonify(results)  
 

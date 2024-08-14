@@ -3,12 +3,12 @@ import {NextResponse} from 'next/server' // Import NextResponse from Next.js for
 export async function POST(req) {
     const data = await req.json()
 
-    const response = await fetch('http://127.0.0.1:5000/api/query', {
+    const response = await fetch('/api/query', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ embedding: data.embedding }),
+        body: JSON.stringify({ text: data.embedding }),
       });
     const result = await response.json();
     const formattedResults = result.map(item => `URL: ${item.id}, Score: ${item.score}`).join("\n");

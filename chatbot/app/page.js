@@ -23,17 +23,17 @@ export default function Home() {
     scrollToBottom()
   }, [messages])
 
-  async function getEmbedding(text) {
-    const response = await fetch('http://127.0.0.1:5000/api/embed', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ text }),
-    });
-    const data = await response.json();
-    return data.embedding;
-  } 
+  // async function getEmbedding(text) {
+  //   const response = await fetch('http://127.0.0.1:5000/api/embed', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify({ text }),
+  //   });
+  //   const data = await response.json();
+  //   return data.embedding;
+  // } 
 
   const sendMessage = async () => {
     if (!msg.trim() || isLoading) return;
@@ -53,7 +53,7 @@ export default function Home() {
       },
       body: JSON.stringify({
         messages: [...messages, {role: 'user', content: msg}],
-        embedding: await getEmbedding(msg),
+        embedding: msg,
       }),
     }).then(async (res) => {
       const reader = res.body.getReader()  // Get a reader to read the response body
@@ -108,7 +108,7 @@ export default function Home() {
         <span className="whitespace-nowrap mt-2">Enter the details in the form to find your account and get connected to Pounce Chat!</span>
       </div>
       <div className="flex flex-l">
-          <div className="w-3/6">
+          <div className="w-3/6 ml-5">
             <div className="flex flex-col items-center">
               <form className="grid grid-cols-6 items-center text-black">
                 <input className="col-span-3 p-3 border" type='text' placeholder="First Name"/> 
