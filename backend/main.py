@@ -5,7 +5,6 @@ from kb import prepare_pinecone, get_embeddings, query_pinecone
 import json
 
 load_dotenv()
-prepare_pinecone()
 
 app = Flask(__name__)
 CORS(app)
@@ -19,6 +18,7 @@ CORS(app)
 
 @app.route('/api/query', methods=['POST'])
 def query():
+    prepare_pinecone()
     data = request.json
     text = data.get('text')
     query_embedding = get_embeddings(text)
